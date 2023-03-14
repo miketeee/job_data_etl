@@ -17,3 +17,9 @@ def get_db_connection():
     conn = psycopg2.connect(dbname=dbname, user=user_name, password=password)
 
     return conn
+
+
+def close_db_connection(conn):
+    conn.close()
+
+    return "DB connection closed"
