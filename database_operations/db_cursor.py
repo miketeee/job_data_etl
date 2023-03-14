@@ -9,9 +9,11 @@ def get_db_cursor(conn):
     return cur
 
 
-def close_db_cursor():
+def close_db_cursor(cursor):
     """
 
     :return:
     """
-    pass
+    cursor.close()
+
+    return cursor.closed

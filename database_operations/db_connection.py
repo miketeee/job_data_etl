@@ -22,4 +22,4 @@ def get_db_connection():
 def close_db_connection(conn):
     conn.close()
 
-    return "DB connection closed"
+    return conn.closed
