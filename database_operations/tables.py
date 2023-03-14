@@ -33,21 +33,12 @@ def create_company_daily_job_stats_table_and_set_column_values(conn, cur):
     """
 
     cur.execute("CREATE TABLE IF NOT EXISTS company_daily_job_stats"
-                "(company_id serial REFERENCES companies (company_id),"
-                "day_zero_job_count integer DEFAULT 0);")
+                "(company_id serial REFERENCES companies (company_id), "
+                "job_count integer DEFAULT 0, "
+                "job_date date);")
     conn.commit()
 
 
-def create_column_for_todays_date_in_company_stats_table(conn, cur, current_date):
-    """
 
-    :param conn:
-    :param cur:
-    :param current_date:
-    :return:
-    """
-
-    cur.execute(f"ALTER TABLE company_daily_job_stats ADD COLUMN IF NOT EXISTS {current_date} integer DEFAULT 0")
-    conn.commit()
 
 

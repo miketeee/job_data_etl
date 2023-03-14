@@ -13,7 +13,6 @@ if __name__ == '__main__':
     tables.create_job_data_table_and_set_column_values(connection, cursor)
     tables.create_companies_table_and_set_column_values(connection, cursor)
     tables.create_company_daily_job_stats_table_and_set_column_values(connection, cursor)
-    tables.create_column_for_todays_date_in_company_stats_table(connection, cursor, datetime_operations.get_todays_date_and_format_it_as_m_d_y())
 
 
 
