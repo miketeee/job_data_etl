@@ -1,5 +1,5 @@
 import psycopg2
-from database_operations import db_connection, db_cursor
+from database_operations import db_connection, db_cursor, tables
 from Tests.testing_fixtures.testing_fixtures import connection, cursor
 
 
@@ -30,5 +30,20 @@ def test_that_cursor_is_closed(cursor):
     cursor_status = db_cursor.close_db_cursor(cursor)
 
     assert cursor_status is True
+
+
+def test_that_job_data_table_is_created_and_column_values_set(connection, cursor):
+
+    job_data_table_exists = False
+
+    create_table.create_job_data_table_and_set_column_values(connection, cursor)
+
+    cursor.execute("SELECT * FROM job_data")
+
+    if cursor.fetchone() is None:
+        job_data_table_exists = True
+
+    assert job_data_table_exists is True
+
 
 
