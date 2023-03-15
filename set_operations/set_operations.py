@@ -14,8 +14,9 @@ def create_a_set_of_uique_strings_from_job_titles(list_of_strings):
                         '}': ' '}
 
     for job in list_of_strings:
-        translation_table = job[0].maketrans(translation_dict)
-        translated_string = job[0].translate(translation_table)
+        job_title = job[0]
+        translation_table = job_title.maketrans(translation_dict)
+        translated_string = job_title.translate(translation_table)
 
         split_job_title = translated_string.split(' ')
         all_jobs_titles.extend(split_job_title)
@@ -34,4 +35,15 @@ def create_set_of_unique_companies(list_of_strings):
     :return:
     """
 
-    pass
+    all_company_names = []
+    unique_company_names = set()
+
+    for job in list_of_strings:
+        company_name = job[1]
+        all_company_names.append(company_name)
+
+    for company_name in all_company_names:
+        unique_company_names.add(company_name)
+
+    return unique_company_names, all_company_names
+
