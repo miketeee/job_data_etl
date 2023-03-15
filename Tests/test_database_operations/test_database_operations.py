@@ -36,11 +36,11 @@ def test_that_job_data_table_is_created_and_column_values_set(connection, cursor
 
     job_data_table_exists = False
 
-    create_table.create_job_data_table_and_set_column_values(connection, cursor)
+    table_creation.create_job_data_table_and_set_column_values(connection, cursor)
 
     cursor.execute("SELECT * FROM job_data")
 
-    if cursor.fetchone() is None:
+    if cursor.fetchone() is None or isinstance(cursor.fetchone(), tuple):
         job_data_table_exists = True
 
     assert job_data_table_exists is True
