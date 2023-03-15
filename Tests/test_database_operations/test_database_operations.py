@@ -1,5 +1,5 @@
 import psycopg2
-from database_operations import db_connection, db_cursor, tables
+from database_operations import db_connection, db_cursor, table_creation
 from Tests.testing_fixtures.testing_fixtures import connection, cursor
 
 
