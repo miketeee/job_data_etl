@@ -1,4 +1,4 @@
-from set_operations import set_operations
+from utility_operations.set_operations import set_operations
 
 
 def test_creating_a_set_from_unique_words_from_all_job_titles():

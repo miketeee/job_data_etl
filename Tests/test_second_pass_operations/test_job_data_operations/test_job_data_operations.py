@@ -1,6 +1,6 @@
-from second_pass_operations.job_data_operations import search_date
+from second_pass_operations.job_data_operations import get_current_date
 from second_pass_operations.job_data_operations import company, job_title, location
-from datetime_operations import datetime_operations
+from utility_operations.datetime_operations import datetime_operations
 
 
 def test_removing_location_data_except_for_city():
@@ -74,6 +74,6 @@ def test_adding_todays_date_to_job_data():
         ['customer service representative sales (wfh - work from home)', 'at&t', 'remote in dallas', f'{todays_date}']
     ]
 
-    strings_with_todays_date_added = search_date.add_todays_date_to_job_data(initial_strings)
+    strings_with_todays_date_added = get_current_date.add_todays_date_to_job_data(initial_strings)
 
     assert expected_strings == strings_with_todays_date_added

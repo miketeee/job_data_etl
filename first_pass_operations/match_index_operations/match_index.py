@@ -28,3 +28,20 @@ def remove_indices_that_contain_only_the_word_new(list_of_strings):
             list_with_indices_that_only_contain_the_word_new.append(string)
 
     return list_with_indices_that_only_contain_the_word_new
+
+
+def remove_indices_that_have_a_length_of_one(list_of_strings):
+    """
+
+    :param list_of_strings:
+    :return:
+    """
+
+    strings_with_indices_that_have_a_length_of_one_removed = []
+
+    for i, string in enumerate(list_of_strings):
+        if len(string) == 1:
+            list_of_strings.pop(i)
+
+    return list_of_strings
+

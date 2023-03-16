@@ -1,14 +1,14 @@
 import transformation_script
 from database_operations import db_connection, db_cursor, table_creation, data_insertion
-from datetime_operations import datetime_operations
-from set_operations import set_operations
-from dict_operations import dict_operations
+from utility_operations.datetime_operations import datetime_operations
+from utility_operations.set_operations import set_operations
+from utility_operations.dict_operations import dict_operations
 
 if __name__ == '__main__':
     current_date = datetime_operations.get_todays_date_and_format_it_as_m_d_y()
 
     # Csv data prep
-    transformed_data = transformation_script.transform_csv_data('rawJobData.csv')
+    transformed_data = transformation_script.transform_csv_data('csvfiles/rawJobData.csv')
 
     unique_and_all_words_in_job_title = set_operations.create_a_set_of_uique_strings_from_job_titles(transformed_data)
     unique_and_all_company_names = set_operations.create_set_of_unique_companies(transformed_data)

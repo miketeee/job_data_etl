@@ -1,3 +1,5 @@
+import csv
+
 def insert_data_into_job_data_table(conn, cur, data_to_insert):
     """
 

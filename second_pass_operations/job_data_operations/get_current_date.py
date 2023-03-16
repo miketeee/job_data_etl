@@ -1,4 +1,4 @@
-from datetime_operations import datetime_operations
+from utility_operations.datetime_operations import datetime_operations
 
 def add_todays_date_to_job_data(list_of_strings):
     """
