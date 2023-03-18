@@ -5,11 +5,12 @@ def create_job_data_table_and_set_column_values(conn, cur):
     """
 
     cur.execute("CREATE TABLE IF NOT EXISTS job_data "
-                "(job_title varchar NOT NULL, "
+                "(id serial UNIQUE NOT NULL,"
+                "job_title varchar NOT NULL, "
                 "company_name varchar NOT NULL, "
                 "location varchar NOT NULL, "
                 "upload_date date NOT NULL,"
-                "PRIMARY KEY (job_title, company_name, location, upload_date));")
+                "PRIMARY KEY (id, job_title, company_name, location, upload_date));")
     conn.commit()
 
 
@@ -34,10 +35,11 @@ def create_company_daily_job_stats_table_and_set_column_values(conn, cur):
     """
 
     cur.execute("CREATE TABLE IF NOT EXISTS company_daily_job_stats"
-                "(company_name varchar NOT NULL, "
+                "(id serial UNIQUE NOT NULL,"
+                "company_name varchar NOT NULL, "
                 "job_count integer DEFAULT 0, "
                 "upload_date date NOT NULL,"
-                "PRIMARY KEY (company_name, upload_date));")
+                "PRIMARY KEY (id, company_name, upload_date));")
     conn.commit()
 
 

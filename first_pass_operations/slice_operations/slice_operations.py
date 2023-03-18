@@ -9,6 +9,7 @@ def slice_list_of_jobs_into_individual_jobs(list_of_strings, job_data_starting_i
     """
 
     jobs_sliced_into_individuals = []
+    unique_jobs = set()
 
     for starting_index in job_data_starting_indices_list:
         if not list_of_strings[starting_index + 2]:
@@ -18,7 +19,12 @@ def slice_list_of_jobs_into_individual_jobs(list_of_strings, job_data_starting_i
             company = list_of_strings[starting_index + 1]
             location = list_of_strings[starting_index + 2]
 
-            sliced_job = [job_title,company, location]
+            unique_job = (job_title, company, location)
+            unique_jobs.add(unique_job)
+
+    for uni_job in unique_jobs:
+
+            sliced_job = [uni_job[0], uni_job[1], uni_job[2]]
 
             jobs_sliced_into_individuals.append(sliced_job)
 

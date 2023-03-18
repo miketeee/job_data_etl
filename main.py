@@ -8,7 +8,7 @@ if __name__ == '__main__':
     current_date = datetime_operations.get_todays_date_and_format_it_as_m_d_y()
 
     # Csv data prep
-    transformed_data = transformation_script.transform_csv_data('csvfiles/rawJobData.csv')
+    transformed_data = transformation_script.transform_csv_data('csvfiles/jobData.csv')
 
     unique_and_all_words_in_job_title = set_operations.create_a_set_of_uique_strings_from_job_titles(transformed_data)
     unique_and_all_company_names = set_operations.create_set_of_unique_companies(transformed_data)
@@ -32,6 +32,8 @@ if __name__ == '__main__':
     data_insertion.insert_data_into_job_data_table(connection, cursor, transformed_data)
     data_insertion.insert_data_into_companies_table(connection, cursor, companies_frequency, current_date)
     data_insertion.insert_data_into_recurring_job_title_words(connection, cursor, job_title_words_frequency, current_date)
+
+
 
     # Close database connection and cursor
     db_cursor.close_db_cursor(cursor)
